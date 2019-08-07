@@ -92,7 +92,11 @@ class Blockchain(object):
         leading zeroes?
         """
         # TODO
-        pass
+        guess = f'{last_proof}{proof}'.encoded()
+        guess_hash = hashlib.sha256(guess)
+        #'{:guess_hash}'.format(i)
+        '{:x}'.format(guess_hash).zfill(64)
+        out[64]
 
     def valid_chain(self, chain):
         """
@@ -135,7 +139,7 @@ blockchain = Blockchain()
 @app.route('/mine', methods=['GET'])
 def mine():
     # We run the proof of work algorithm to get the next proof...
-    proof = blockchain.proof_of_work()
+    proof = blockchain.proof_of_work(...)
 
     # We must receive a reward for finding the proof.
     # TODO:
@@ -179,10 +183,13 @@ def new_transaction():
 def full_chain():
     response = {
         # TODO: Return the chain and its current length
+        'currentchain': blockchain.chain,
+        'length': len(blockchain.chain)
     }
     return jsonify(response), 200
 
 
 # Run the program on port 5000
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=5000)
+    #app.run(host='0.0.0.0', port=5000)
+    app.run(host='localhost', port=5500)
