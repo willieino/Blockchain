@@ -1,0 +1,4 @@
+ 2019-08-08 16:46:49,315 - INFO -  * Running on http://localhost:8080/ (Press CTRL+C to quit)
+ 2019-08-08 17:57:12,522 - INFO -  * Running on http://localhost:8080/ (Press CTRL+C to quit)
+ 2019-08-08 18:00:44,148 - INFO -  * Running on http://localhost:8080/ (Press CTRL+C to quit)
+ 2019-08-08 18:01:42,058 - INFO - 127.0.0.1 - - [08/Aug/2019 18:01:42] "GET /mine HTTP/1.1" 404 -

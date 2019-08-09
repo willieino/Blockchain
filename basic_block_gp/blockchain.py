@@ -4,7 +4,8 @@ from time import time
 from uuid import uuid4
 
 from flask import Flask, jsonify, request
-
+import logging
+logging.basicConfig(filename='myLogs.txt', level=logging.DEBUG, format=' %(asctime)s - %(levelname)s - %(message)s')
 
 
 
@@ -76,20 +77,23 @@ class Blockchain(object):
     def last_block(self):
         return self.chain[-1]
 
-    def proof_of_work(self, last_proof):
+   '''  def proof_of_work(self, last_proof):
         """
         Simple Proof of Work Algorithm
         Find a number p such that hash(last_block_string, p) contains 6 leading
         zeroes
         """
+        last_block = self.chain[-1]
+        last_hash = self.hash(last_block)
+
         proof = 0
         # for block 1, hash(1, p) = 000000x
         while self.valid_proof(last_proof, proof) is False:
             proof += 1
-        return proof
+        return proof '''
         
 
-    @staticmethod
+  '''   @staticmethod
     def valid_proof(last_proof, proof):
         """
         Validates the Proof:  Does hash(block_string, proof) contain 6
@@ -99,22 +103,14 @@ class Blockchain(object):
         guess = f'{last_proof}{proof}'.encode()
         # use hash function
         guess_hash = hashlib.sha256(guess).hexdigest()
+        
         # check if 6 leading 0's in hash result
-        #beg = guess_hash[0:6]
-        
-        beg = int(guess_hash,16)
-        #'{:guess_hash}'.format(i)
-        #'{:x}'.format(i).zfill(64)
-        #out[64]
-        '{:0>64x}'.format(beg)
-        #Out[57]: '00000000000000003258ec44ea34c98111234904ef7642608922f9b8b296067d' 
-        
-        print(beg)
-        beg = beg[0:6]
+        beg = guess_hash[0:6]
+             
         if beg == "000000":
             return True
         else:
-            return False
+            return False '''
 
   
 
@@ -136,9 +132,20 @@ class Blockchain(object):
             print("\n-------------------\n")
             # Check that the hash of the block is correct
             # TODO: Return false if hash isn't correct
+            if block['previous_hash'] != self.hash(last_block):
+                return False
 
             # Check that the Proof of Work is correct
             # TODO: Return false if proof isn't correct
+# Check that the Proof of Work is correct
+            #Delete the reward transaction
+            transactions = block['transactions'][:-1]
+            # Need to make sure that the dictionary is ordered. Otherwise we'll get a different hash
+            transaction_elements = ['sender_address', 'recipient_address', 'value']
+            transactions = [OrderedDict((k, transaction[k]) for k in transaction_elements) for transaction in transactions]
+
+            if not self.valid_proof(transactions, block['previous_hash'], block['nonce'], MINING_DIFFICULTY):
+                return False
 
             last_block = block
             current_index += 1
@@ -159,8 +166,9 @@ blockchain = Blockchain()
 @app.route('/mine', methods=['GET'])
 def mine():
     # We run the proof of work algorithm to get the next proof...
+    #proof = blockchain.proof_of_work(blockchain.last_block)
+    last_block = blockchain.chain[-1]
     proof = blockchain.proof_of_work(blockchain.last_block)
-
     # We must receive a reward for finding the proof.
     # TODO:
     # The sender is "0" to signify that this node has mine a new coin
@@ -169,7 +177,10 @@ def mine():
     blockchain.new_transaction(0, node_identifier, 1)
     # Forge the new Block by adding it to the chain
     # TODO
-    block = blockchain.new_block(proof, blockchain.hash(blockchain.last_block))
+    
+    previous_hash = blockchain.hash(last_block)
+    #block = blockchain.new_block(proof, blockchain.hash(blockchain.last_block))
+    block = blockchain.new_block(proof, previous_hash)
     # Send a response with the new block
     response = {
         'message': "New Block Forged",
