@@ -24,7 +24,7 @@ class Blockchain(object):
         self.nodes = set()
         self.node_id = str(uuid4()).replace('-', '')
         #Create genesis block
-        self.new_block(0, '00')
+        #self.new_block(0, '00')
 
 
         self.new_block(previous_hash=1, proof=99)
@@ -291,8 +291,6 @@ def last_block_string():
     response = {
         'last_block_string': blockchain.last_block 
     }         
-    
-    
     return jsonify(response), 200
 
 
@@ -306,14 +304,14 @@ def resolve_conflicts(self):
     Resolve conflicts between blockchain's nodes
     by replacing our chain with the longest one in the network.
     """
-    neighbours = self.nodes
+    neighbors = self.nodes
     new_chain = None
 
     # We're only looking for chains longer than ours
     max_length = len(self.chain)
 
     # Grab and verify the chains from all the nodes in our network
-    for node in neighbours:
+    for node in neighbors:
         print('http://' + node + '/chain')
         response = requests.get('http://' + node + '/chain')
 
