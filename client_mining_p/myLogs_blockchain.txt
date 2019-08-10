@@ -31,3 +31,4 @@
  2019-08-09 20:11:01,699 - INFO - 127.0.0.1 - - [09/Aug/2019 20:11:01] "GET /last_block_string HTTP/1.1" 200 -
  2019-08-09 20:11:18,107 - INFO - 127.0.0.1 - - [09/Aug/2019 20:11:18] "POST /mine HTTP/1.1" 200 -
  2019-08-09 20:11:19,113 - INFO - 127.0.0.1 - - [09/Aug/2019 20:11:19] "GET /last_block_string HTTP/1.1" 200 -
+ 2019-08-09 22:35:39,494 - INFO -  * Running on http://localhost:5500/ (Press CTRL+C to quit)
