@@ -77,7 +77,7 @@ class Blockchain(object):
     def last_block(self):
         return self.chain[-1]
 
-   '''  def proof_of_work(self, last_proof):
+     def proof_of_work(self, last_proof):
         """
         Simple Proof of Work Algorithm
         Find a number p such that hash(last_block_string, p) contains 6 leading
@@ -90,10 +90,10 @@ class Blockchain(object):
         # for block 1, hash(1, p) = 000000x
         while self.valid_proof(last_proof, proof) is False:
             proof += 1
-        return proof '''
+        return proof 
         
 
-  '''   @staticmethod
+     @staticmethod
     def valid_proof(last_proof, proof):
         """
         Validates the Proof:  Does hash(block_string, proof) contain 6
@@ -110,7 +110,7 @@ class Blockchain(object):
         if beg == "000000":
             return True
         else:
-            return False '''
+            return False 
 
   
 

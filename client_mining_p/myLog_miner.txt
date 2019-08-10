@@ -2,3 +2,29 @@
  2019-08-08 17:57:12,522 - INFO -  * Running on http://localhost:8080/ (Press CTRL+C to quit)
  2019-08-08 18:00:44,148 - INFO -  * Running on http://localhost:8080/ (Press CTRL+C to quit)
  2019-08-08 18:01:42,058 - INFO - 127.0.0.1 - - [08/Aug/2019 18:01:42] "GET /mine HTTP/1.1" 404 -
+ 2019-08-09 13:51:09,785 - DEBUG - Starting new HTTP connection (1): localhost
+ 2019-08-09 13:51:10,803 - DEBUG - http://localhost:5500 "GET /last_block_string HTTP/1.1" 500 290
+ 2019-08-09 15:02:21,822 - DEBUG - Starting new HTTP connection (1): localhost:5500
+ 2019-08-09 15:02:22,833 - DEBUG - http://localhost:5500 "GET /last_block_string HTTP/1.1" 500 290
+ 2019-08-09 15:33:06,988 - DEBUG - Starting new HTTP connection (1): localhost
+ 2019-08-09 15:33:08,001 - DEBUG - http://localhost:5500 "GET /last_block_string HTTP/1.1" 200 112
+ 2019-08-09 15:33:22,901 - DEBUG - Starting new HTTP connection (1): localhost
+ 2019-08-09 15:33:23,907 - DEBUG - http://localhost:5500 "POST /mine HTTP/1.1" 200 228
+ 2019-08-09 18:04:01,284 - DEBUG - Starting new HTTP connection (1): localhost:5500
+ 2019-08-09 18:04:02,294 - DEBUG - http://localhost:5500 "GET /last_block_string HTTP/1.1" 200 251
+ 2019-08-09 18:04:46,359 - DEBUG - Starting new HTTP connection (1): localhost:5500
+ 2019-08-09 18:04:47,365 - DEBUG - http://localhost:5500 "POST /mine HTTP/1.1" 200 229
+ 2019-08-09 19:31:58,186 - DEBUG - Starting new HTTP connection (1): localhost:5500
+ 2019-08-09 19:31:59,192 - DEBUG - http://localhost:5500 "GET /last_block_string HTTP/1.1" 200 153
+ 2019-08-09 19:32:14,554 - DEBUG - Starting new HTTP connection (1): localhost:5500
+ 2019-08-09 19:32:15,558 - DEBUG - http://localhost:5500 "POST /mine HTTP/1.1" 200 292
+ 2019-08-09 20:08:15,482 - DEBUG - Starting new HTTP connection (1): localhost:5500
+ 2019-08-09 20:08:16,490 - DEBUG - http://localhost:5500 "GET /last_block_string HTTP/1.1" 200 154
+ 2019-08-09 20:08:31,894 - DEBUG - Starting new HTTP connection (1): localhost:5500
+ 2019-08-09 20:08:32,898 - DEBUG - http://localhost:5500 "POST /mine HTTP/1.1" 200 292
+ 2019-08-09 20:11:00,692 - DEBUG - Starting new HTTP connection (1): localhost:5500
+ 2019-08-09 20:11:01,699 - DEBUG - http://localhost:5500 "GET /last_block_string HTTP/1.1" 200 154
+ 2019-08-09 20:11:17,104 - DEBUG - Starting new HTTP connection (1): localhost:5500
+ 2019-08-09 20:11:18,107 - DEBUG - http://localhost:5500 "POST /mine HTTP/1.1" 200 292
+ 2019-08-09 20:11:18,111 - DEBUG - Starting new HTTP connection (1): localhost:5500
+ 2019-08-09 20:11:19,114 - DEBUG - http://localhost:5500 "GET /last_block_string HTTP/1.1" 200 345

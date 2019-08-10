@@ -1,0 +1,33 @@
+ 2019-08-08 18:24:23,676 - INFO -  * Running on http://localhost:5500/ (Press CTRL+C to quit)
+ 2019-08-09 09:42:36,150 - INFO -  * Running on http://localhost:5500/ (Press CTRL+C to quit)
+ 2019-08-09 09:45:09,959 - INFO -  * Running on http://localhost:5500/ (Press CTRL+C to quit)
+ 2019-08-09 09:46:47,116 - INFO -  * Running on http://localhost:5500/ (Press CTRL+C to quit)
+ 2019-08-09 10:20:10,911 - INFO -  * Running on http://localhost:5500/ (Press CTRL+C to quit)
+ 2019-08-09 12:10:25,564 - INFO -  * Running on http://localhost:5500/ (Press CTRL+C to quit)
+ 2019-08-09 12:14:38,923 - INFO -  * Running on http://localhost:5500/ (Press CTRL+C to quit)
+ 2019-08-09 12:19:53,093 - INFO - 127.0.0.1 - - [09/Aug/2019 12:19:53] "GET /chain HTTP/1.1" 500 -
+ 2019-08-09 12:20:07,406 - INFO - 127.0.0.1 - - [09/Aug/2019 12:20:07] "GET /mine HTTP/1.1" 500 -
+ 2019-08-09 12:24:41,355 - INFO -  * Running on http://localhost:5500/ (Press CTRL+C to quit)
+ 2019-08-09 13:34:51,942 - INFO -  * Running on http://localhost:5500/ (Press CTRL+C to quit)
+ 2019-08-09 13:51:10,801 - INFO - 127.0.0.1 - - [09/Aug/2019 13:51:10] "GET /last_block_string HTTP/1.1" 500 -
+ 2019-08-09 15:01:39,652 - INFO -  * Running on http://localhost:5500/ (Press CTRL+C to quit)
+ 2019-08-09 15:02:22,832 - INFO - 127.0.0.1 - - [09/Aug/2019 15:02:22] "GET /last_block_string HTTP/1.1" 500 -
+ 2019-08-09 15:32:28,074 - INFO -  * Running on http://localhost:5500/ (Press CTRL+C to quit)
+ 2019-08-09 15:33:07,998 - INFO - 127.0.0.1 - - [09/Aug/2019 15:33:07] "GET /last_block_string HTTP/1.1" 200 -
+ 2019-08-09 15:33:23,906 - INFO - 127.0.0.1 - - [09/Aug/2019 15:33:23] "POST /mine HTTP/1.1" 200 -
+ 2019-08-09 18:02:40,826 - INFO -  * Running on http://localhost:5500/ (Press CTRL+C to quit)
+ 2019-08-09 18:04:02,293 - INFO - 127.0.0.1 - - [09/Aug/2019 18:04:02] "GET /last_block_string HTTP/1.1" 200 -
+ 2019-08-09 18:04:47,364 - INFO - 127.0.0.1 - - [09/Aug/2019 18:04:47] "POST /mine HTTP/1.1" 200 -
+ 2019-08-09 19:25:50,083 - INFO -  * Running on http://localhost:5500/ (Press CTRL+C to quit)
+ 2019-08-09 19:26:41,553 - INFO - 127.0.0.1 - - [09/Aug/2019 19:26:41] "GET /chain HTTP/1.1" 200 -
+ 2019-08-09 19:27:16,561 - INFO - 127.0.0.1 - - [09/Aug/2019 19:27:16] "GET /mine HTTP/1.1" 405 -
+ 2019-08-09 19:31:40,994 - INFO -  * Running on http://localhost:5500/ (Press CTRL+C to quit)
+ 2019-08-09 19:31:59,192 - INFO - 127.0.0.1 - - [09/Aug/2019 19:31:59] "GET /last_block_string HTTP/1.1" 200 -
+ 2019-08-09 19:32:15,557 - INFO - 127.0.0.1 - - [09/Aug/2019 19:32:15] "POST /mine HTTP/1.1" 200 -
+ 2019-08-09 20:08:01,875 - INFO -  * Running on http://localhost:5500/ (Press CTRL+C to quit)
+ 2019-08-09 20:08:16,490 - INFO - 127.0.0.1 - - [09/Aug/2019 20:08:16] "GET /last_block_string HTTP/1.1" 200 -
+ 2019-08-09 20:08:32,897 - INFO - 127.0.0.1 - - [09/Aug/2019 20:08:32] "POST /mine HTTP/1.1" 200 -
+ 2019-08-09 20:10:50,250 - INFO -  * Running on http://localhost:5500/ (Press CTRL+C to quit)
+ 2019-08-09 20:11:01,699 - INFO - 127.0.0.1 - - [09/Aug/2019 20:11:01] "GET /last_block_string HTTP/1.1" 200 -
+ 2019-08-09 20:11:18,107 - INFO - 127.0.0.1 - - [09/Aug/2019 20:11:18] "POST /mine HTTP/1.1" 200 -
+ 2019-08-09 20:11:19,113 - INFO - 127.0.0.1 - - [09/Aug/2019 20:11:19] "GET /last_block_string HTTP/1.1" 200 -

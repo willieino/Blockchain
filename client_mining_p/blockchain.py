@@ -21,7 +21,7 @@ class Blockchain(object):
         self.current_transactions = []
         self.nodes = set()
 
-        self.new_block(previous_hash=1, proof=100)
+        self.new_block(previous_hash=1, proof=99)
 
     def new_block(self, proof, previous_hash=None):
         """
@@ -34,9 +34,8 @@ class Blockchain(object):
 
         block = {
             'index': len(self.chain) + 1,
-            'timestamp': time,
+            'timestamp': time.time(),
             'transactions': self.current_transactions,
-            #'transactions': current_transactions,
             'proof': proof,
             'previous_hash': previous_hash or self.hash(self.chain[-1]),
         }
@@ -84,7 +83,7 @@ class Blockchain(object):
     def last_block(self):
         return self.chain[-1]
 
-    ''' def proof_of_work(self, last_proof):
+        '''  def proof_of_work(self, last_proof):
         """
         Simple Proof of Work Algorithm
         Find a number p such that hash(last_block_string, p) contains 6 leading
@@ -97,17 +96,17 @@ class Blockchain(object):
         # for block 1, hash(1, p) = 000000x
         while self.valid_proof(last_proof, proof) is False:
             proof += 1
-        return proof '''
+        return proof  '''
         
 
-    ''' @staticmethod
-    def valid_proof(last_proof, proof):
+    @staticmethod
+    def valid_proof(last_block_string, proof):
         """
         Validates the Proof:  Does hash(block_string, proof) contain 6
         leading zeroes?
         """
         # build string to hash
-        guess = f'{last_proof}{proof}'.encode()
+        guess = f'{last_block_string}{proof}'.encode()
         # use hash function
         guess_hash = hashlib.sha256(guess).hexdigest()
         
@@ -118,7 +117,7 @@ class Blockchain(object):
             return True
         else:
             return False
- '''
+ 
   
 
     def valid_chain(self, chain):
@@ -139,20 +138,20 @@ class Blockchain(object):
             print("\n-------------------\n")
             # Check that the hash of the block is correct
             # TODO: Return false if hash isn't correct
-            if block['previous_hash'] != self.hash(last_block):
-                return False
+            #if block['previous_hash'] != self.hash(last_block):
+             #   return False
 
             # Check that the Proof of Work is correct
             # TODO: Return false if proof isn't correct
             # Check that the Proof of Work is correct
             #Delete the reward transaction
-            transactions = block['transactions'][:-1]
+           # transactions = block['transactions'][:-1]
             # Need to make sure that the dictionary is ordered. Otherwise we'll get a different hash
-            transaction_elements = ['sender_address', 'recipient_address', 'value']
-            transactions = [OrderedDict((k, transaction[k]) for k in transaction_elements) for transaction in transactions]
+            #transaction_elements = ['sender_address', 'recipient_address', 'value']
+            #transactions = [OrderedDict((k, transaction[k]) for k in transaction_elements) for transaction in transactions]
 
-            if not self.valid_proof(transactions, block['previous_hash'], block['nonce'], MINING_DIFFICULTY):
-                return False
+            #if not self.valid_proof(transactions, block['previous_hash'], block['nonce'], MINING_DIFFICULTY):
+            #    return False
 
             last_block = block
             current_index += 1
@@ -170,18 +169,31 @@ node_identifier = str(uuid4()).replace('-', '')
 blockchain = Blockchain()
 
 
-@app.route('/mine', methods=['GET'])
+@app.route('/mine', methods=['POST'])
 def mine():
     # We run the proof of work algorithm to get the next proof...
     #proof = blockchain.proof_of_work(blockchain.last_block)
-    
-    last_block = blockchain.chain[-1]
+    values = request.get_json()
+    #last_block = blockchain.chain[-1]
     
     #url = 'https://localhost:5500/proof_of_work'
    # last_proof = last_block
    # server_proof = requests.post(url, json = last_proof)
+    required = ['proof']
+    if not all(k in values for k in required):
+        return 'Missing Values', 400
+        
     
-    proof = blockchain.proof_of_work(blockchain.last_block)
+    if not blockchain.valid_proof(blockchain.last_block['previous_hash'], values['proof']):
+        print("Error")
+        # Error Message
+        response = {
+            'message': "Proof is invalid. May have already been submitted"
+
+        }
+        return jsonify(response), 200
+    
+    #proof = blockchain.proof_of_work(blockchain.last_block)
     # We must receive a reward for finding the proof.
     # TODO:
     # The sender is "0" to signify that this node has mine a new coin
@@ -191,9 +203,9 @@ def mine():
     # Forge the new Block by adding it to the chain
     # TODO
     
-    previous_hash = blockchain.hash(last_block)
+    #previous_hash = blockchain.hash(last_block)
     #block = blockchain.new_block(proof, blockchain.hash(blockchain.last_block))
-    block = blockchain.new_block(proof, previous_hash)
+    block = blockchain.new_block(values['proof'], blockchain.hash(blockchain.last_block))
     # Send a response with the new block
     response = {
         'message': "New Block Forged",
@@ -232,28 +244,35 @@ def full_chain():
     }
     return jsonify(response), 200
 
-''' def timer(func):
+#def timer(func):
     """Print the runtime of the decorated function"""
-    @functools.wraps(func)
-    def wrapper_timer(*args, **kwargs):
-        start_time = time.perf_counter()    # 1
-        value = func(*args, **kwargs)
-        end_time = time.perf_counter()      # 2
-        run_time = end_time - start_time    # 3
-        print(f"Finished {func.__name__!r} in {run_time:.4f} secs")
-        return value
-    return wrapper_timer
+#    @functools.wraps(func)
+#    def wrapper_timer(*args, **kwargs):
+#        start_time = time.perf_counter()    # 1
+#        value = func(*args, **kwargs)
+#        end_time = time.perf_counter()      # 2
+#        run_time = end_time - start_time    # 3
+#        print(f"Finished {func.__name__!r} in {run_time:.4f} secs")
+#        return value
+#    return wrapper_timer
 
-@timer
-def waste_some_time(num_times):
-    for _ in range(num_times):
-        sum([i**2 for i in range(10000)]) '''
+#@timer
+#def waste_some_time(num_times):
+#    for _ in range(num_times):
+#        sum([i**2 for i in range(10000)]) 
 
-#@app.route('/last_proof')
-#def last_proof(self, proof):
+@app.route('/last_block_string', methods=['GET'])
+def last_block_string():
+    #print("going through last_block_string")
+    response = {
+        'last_block_string': blockchain.last_block 
+    }         
+    
+    
+    return jsonify(response), 200
 
 
-# Run the program on port 5000
+# Run the program on port 5500
 if __name__ == '__main__':
     #app.run(host='0.0.0.0', port=5000)
     app.run(host='localhost', port=5500)
