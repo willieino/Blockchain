@@ -1,0 +1,22 @@
+ 2019-08-07 13:31:05,020 - INFO -  * Running on http://localhost:5500/ (Press CTRL+C to quit)
+ 2019-08-07 13:33:13,851 - INFO -  * Running on http://localhost:5500/ (Press CTRL+C to quit)
+ 2019-08-07 13:33:27,830 - INFO - 127.0.0.1 - - [07/Aug/2019 13:33:27] "GET /chain HTTP/1.1" 200 -
+ 2019-08-07 13:35:19,757 - INFO - 127.0.0.1 - - [07/Aug/2019 13:35:19] "GET /mine HTTP/1.1" 200 -
+ 2019-08-07 13:55:06,090 - INFO -  * Running on http://localhost:5500/ (Press CTRL+C to quit)
+ 2019-08-07 13:55:20,605 - INFO - 127.0.0.1 - - [07/Aug/2019 13:55:20] "GET /chain HTTP/1.1" 200 -
+ 2019-08-07 14:00:32,954 - INFO -  * Running on http://localhost:5500/ (Press CTRL+C to quit)
+ 2019-08-07 14:00:46,502 - INFO - 127.0.0.1 - - [07/Aug/2019 14:00:46] "GET /chain HTTP/1.1" 200 -
+ 2019-08-07 14:00:56,284 - INFO - 127.0.0.1 - - [07/Aug/2019 14:00:56] "GET /mine HTTP/1.1" 500 -
+ 2019-08-07 14:02:41,687 - INFO -  * Running on http://localhost:5500/ (Press CTRL+C to quit)
+ 2019-08-07 14:02:54,969 - INFO - 127.0.0.1 - - [07/Aug/2019 14:02:54] "GET /chain HTTP/1.1" 200 -
+ 2019-08-07 14:03:03,672 - INFO - 127.0.0.1 - - [07/Aug/2019 14:03:03] "GET /mine HTTP/1.1" 500 -
+ 2019-08-07 14:04:28,656 - INFO -  * Running on http://localhost:5500/ (Press CTRL+C to quit)
+ 2019-08-07 14:04:41,672 - INFO - 127.0.0.1 - - [07/Aug/2019 14:04:41] "GET /chain HTTP/1.1" 200 -
+ 2019-08-07 14:07:01,470 - INFO -  * Running on http://localhost:5500/ (Press CTRL+C to quit)
+ 2019-08-07 14:10:04,092 - INFO -  * Running on http://localhost:5500/ (Press CTRL+C to quit)
+ 2019-08-07 14:10:11,440 - INFO - 127.0.0.1 - - [07/Aug/2019 14:10:11] "GET /mine HTTP/1.1" 500 -
+ 2019-08-07 14:11:44,902 - INFO -  * Running on http://localhost:5500/ (Press CTRL+C to quit)
+ 2019-08-07 14:11:54,461 - INFO - 127.0.0.1 - - [07/Aug/2019 14:11:54] "GET /mine HTTP/1.1" 500 -
+ 2019-08-07 14:13:35,691 - INFO -  * Running on http://localhost:5500/ (Press CTRL+C to quit)
+ 2019-08-07 14:14:17,477 - INFO -  * Running on http://localhost:5500/ (Press CTRL+C to quit)
+ 2019-08-07 14:14:33,516 - INFO - 127.0.0.1 - - [07/Aug/2019 14:14:33] "GET /mine HTTP/1.1" 200 -

@@ -3,5 +3,7 @@
         "activityBar.background": "#2E1D71",
         "titleBar.activeBackground": "#40299E",
         "titleBar.activeForeground": "#FAF9FD"
-    }
+    },
+    "python.pythonPath": "C:\\Users\\willi\\.virtualenvs\\tester-qo4_-ErA\\Scripts\\python.exe",
+    "python.linting.pylintEnabled": false
 }
